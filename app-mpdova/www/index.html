@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <meta name="viewport" content="initial-scale=1,width=device-width,viewport-fit=cover"/>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="src/toast.min.css"/>
+  <link rel="stylesheet" href="src/pull-refresh.css"/>
+  <script src="cordova.js"></script>
+  <script src="src/hammer.js"></script>
+  <script src="src/que.js"></script>
+  <script src="src/toast.min.js"></script>
+  <script src="src/pull-refresh.js"></script>
+  <script src="index.js"></script>
+  <title>Mpdova</title>
+</head>
+<body>
+
+<header>
+  <div @click="showMenu" class="menu"><i class="menu"></i></div>
+  <div @click="backToTop" class="appname flex">MPDOVA</div>
+  <div @click="switchTab" data-index="0" class="{{ tabIndex==0 ? 'active' : '' }}">播放列表</div>
+  <div @click="switchTab" data-index="1" class="{{ tabIndex==1 ? 'active' : '' }}">音乐库</div>
+</header>
+
+<main class="flex">
+  <div class="tab-pages" style="left: {{ -tabIndex*screenWidth }}px">
+    <!-- Playlist -->
+    <div id="playlist" class="song-list" style="width: {{ screenWidth }}px">
+      <div foreach="item in playlist" data-pos="{{ item.Pos }}"
+        class="item {{ item.Pos == currentSong.Pos ? 'playing' : '' }}"
+        @click="play" @hammer.press="removeSong">
+
+        <div class="title flex">{{ basename(item.file) }}</div>
+        <div class="duration">{{ formatDuration(item.Time) }}</div>
+      </div>
+    </div>
+
+    <!-- Filelist -->
+    <div id="filelist" class="song-list" style="width: {{ screenWidth }}px">
+      <div foreach="item in filelist" class="item"
+        data-dir="{{ item.directory }}" data-file="{{ item.file }}"
+        @click="openDirectory" @hammer.press="addSong">
+
+        <div class="title flex">{{ item.directory || basename(item.file) }}</div>
+        <div class="duration">{{ formatDuration(item.Time) }}</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="timeline">
+    <div class="progress" style="width: {{ status.progress }}%"></div>
+    <div class="pointer" style="left: {{ status.progress }}%"></div>
+  </div>
+
+  <div class="controls">
+    <div class="seeker"></div>
+    <div class="flex">
+      <div class="title">{{ basename(currentSong.file) }}</div>
+      <div class="metadata">
+        <span if="status.bitrate">{{ status.bitrate }}kbps</span>
+        <span if="status.samplingRate">{{ status.samplingRate }}kHz</span>
+        <span if="status.bitDepth">{{ status.bitDepth }}bits</span>
+      </div>
+    </div>
+
+    <button @click="previous" class="previous"></button>
+    <button @click="toggle" @hammer.press="stop"
+      class="{{ status.state=='play' ? 'pause' : 'play' }}">
+    </button>
+    <button @click="next" class="next"></button>
+  </div>
+</footer>
+
+<div class="bgmask" style="display: {{ menuOn ? 'block' : 'none' }}" @click="hideMenu"></div>
+<menu style="left: {{ menuOn ? '0' : '-70%' }}">
+  <div class="title"><i class="logo"></i>MPDOVA</div>
+
+  <hr/><!-- Change play mode -->
+  <div @click="single"><i class="{{ status.single==1 ? 'checked' : '' }}"></i>单曲模式</div>
+  <div @click="repeat"><i class="{{ status.repeat==1 ? 'checked' : '' }}"></i>循环模式</div>
+  <div @click="random"><i class="{{ status.random==1 ? 'checked' : '' }}"></i>随机模式</div>
+
+  <hr/><!-- Stop timing -->
+  <div @click="setSchedule" data-delay="1800">
+    <i class="{{ delay==1800 ? 'checked' : '' }}"></i>半小时后停止
+    <span class="countdown" hidden="delay==1800 && countdown">{{ formatDuration(countdown) }}</span>
+  </div>
+  <div @click="setSchedule" data-delay="3600">
+    <i class="{{ delay==3600 ? 'checked' : '' }}"></i>一小时后停止
+    <span class="countdown" hidden="delay==3600 && countdown">{{ formatDuration(countdown) }}</span>
+  </div>
+  <div @click="setSchedule" data-delay="7200">
+    <i class="{{ delay==7200 ? 'checked' : '' }}"></i>两小时后停止
+    <span class="countdown" hidden="delay==7200 && countdown">{{ formatDuration(countdown) }}</span>
+  </div>
+
+  <hr/><!-- Clear and update -->
+  <div @click="clear"><i class="clear"></i>清空播放列表</div>
+  <div @click="update"><i class="update"></i>更新音乐库</div>
+  <div @click="addMpdServer"><i class="server"></i>服务器设置</div>
+
+  <hr/><!-- Copyright -->
+  <div class="copyright">&copy; 2019 CLOUDSEAT</div>
+</menu>
+
+</body>
+</html>

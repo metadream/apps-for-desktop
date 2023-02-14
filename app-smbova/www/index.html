@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <meta name="viewport" content="initial-scale=1,width=device-width,viewport-fit=cover"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src *; media-src 'self' data: blob: filesystem: content: cdvfile: *; img-src 'self' data: blob: filesystem: content: cdvfile: *;">
+  <link rel="stylesheet" href="src/toast.min.css"/>
+  <link rel="stylesheet" href="src/pull-refresh.css"/>
+  <link rel="stylesheet" href="src/prism.css"/>
+  <link rel="stylesheet" href="index.css"/>
+  <script src="cordova.js"></script>
+  <script src="src/que.min.js"></script>
+  <script src="src/toast.min.js"></script>
+  <script src="src/hammer.js"></script>
+  <script src="src/prism.js"></script>
+  <script src="src/pull-refresh.js"></script>
+  <script src="index.js"></script>
+  <title>SMBOVA</title>
+</head>
+<body>
+
+<header>
+  <div @click="onBack"><i class="back"></i></div>
+  <div @click="onStatusTop" class="appname">SMBOVA <span>({{ filelist.length }})</span></div>
+  <div class="transfer-progress">{{ progress }}</div>
+  <div @click="onAdd"><i class="add"></i></div>
+  <div @click="onSort"><i class="sort"></i></div>
+</header>
+
+<main>
+  <div class="item" foreach="(item, index) in filelist" data-index="{{ index }}"
+    @click="onOpen" @hammer.press="onAction">
+
+    <div class="icon" if="item.isRoot">
+      <img src="image/file/server.png"/>
+    </div>
+    <div class="icon" else>
+      <img if="item.type==0" data-src="image/file/{{getFileIcon(item.ext)}}.png"/>
+      <img if="item.type==1" src="image/file/folder.png"/>
+      <img if="item.type==8" src="image/file/share.png"/>
+    </div>
+
+    <div class="filename">{{ item.name }}</div>
+    <div class="metadata">
+      <div>{{ item.host || formatSize(item.size) }} {{ (item.ext || "").toUpperCase() }}</div>
+      <div>{{ formatTime(item.lastModified) }}</div>
+    </div>
+  </div>
+</main>
+
+<div class="text-page">
+  <header>
+    <div onclick="textPage.hide()"><i class="back"></i></div>
+    <div class="appname"></div>
+    <div @click="onSaveText"><i class="save"></i></div>
+  </header>
+  <main>
+    <pre class="content" contenteditable="true"></pre>
+  </main>
+</div>
+
+<div class="server-page">
+  <header>
+    <div onclick="serverPage.hide()"><i class="back"></i></div>
+    <div class="appname">服务器设置</div>
+    <div @click="onSaveServer"><i class="save"></i></div>
+  </header>
+  <main>
+    <div class="item">
+      <div>别名：</div>
+      <input type="text" model="server.name" placeholder="必填" />
+    </div>
+    <div class="item">
+      <div>主机名/IP：</div>
+      <input type="text" model="server.host" placeholder="0.0.0.0/[path]" />
+    </div>
+    <div class="item">
+      <div>用户名：</div>
+      <input type="text" model="server.username" placeholder="可选" />
+    </div>
+    <div class="item">
+      <div>密码：</div>
+      <input type="password" model="server.password" placeholder="可选" type="password" />
+    </div>
+    <div class="item">
+      <div>MAC地址：</div>
+      <input type="text" model="server.mac" placeholder="FF:FF:FF:FF:FF:FF" />
+    </div>
+    <div class="item">
+      <div>端口：</div>
+      <input type="text" model="server.port" placeholder="9" />
+    </div>
+    <div class="item">
+      <div>指纹登录：</div>
+      <input type="checkbox" class="toast-switch" id="needFingerprint" />
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../assets/gui.css"/>
+    <script src="../assets/panzoom.js"></script>
+    <title>Similar Images Finder</title>
+  </head>
+
+  <body>
+    <header>
+      <input type="text" id="path" class="open-btn" placeholder="Open images folder..." readonly/>
+
+      <div class="checkbox">
+        <input type="checkbox" id="recursion"/>
+        <label for="recursion">Include Subfolders</label>
+      </div>
+
+      <div>
+        <select id="algorithm" title="Feature Algorithm">
+          <option selected>AVERAGE_HASH</option>
+          <option>DIFFERENT_HASH</option>
+          <option>PERCEIVE_HASH</option>
+          <option>CONTENT_FEATURE</option>
+          <option>COLOR_HISTOGRAM</option>
+        </select>
+      </div>
+
+      <div>
+        <select id="threshold" title="Similarity Threshold">
+          <option>100%</option>
+          <option>95%</option>
+          <option selected>90%</option>
+          <option>85%</option>
+          <option>80%</option>
+          <option>75%</option>
+          <option>70%</option>
+          <option>65%</option>
+          <option>60%</option>
+          <option>55%</option>
+          <option>50%</option>
+        </select>
+      </div>
+
+      <button class="scan-btn">Scan</button>
+    </header>
+
+    <main>
+      <table>
+        <tr>
+          <td width="5%">Group</td>
+          <td>Name</td>
+          <td width="15%">Dimension</td>
+          <td width="10%">Size</td>
+          <td width="10%">Similarity</td>
+        </tr>
+      </table>
+    </main>
+
+    <div class="viewer"><img/></div>
+    <div class="message"></div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

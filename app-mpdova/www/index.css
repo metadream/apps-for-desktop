@@ -1,0 +1,339 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border: #ddd 1px solid;
+  border-radius: 3px;
+  font: inherit;
+}
+
+/* ----------------------------------------------
+ * header
+ * ------------------------------------------- */
+
+header {
+  position: fixed;
+  z-index: 2;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+header>div {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #ddd 1px solid;
+}
+
+header div.appname {
+  font-weight: 700;
+  justify-content: flex-start;
+}
+
+header div.menu {
+  width: 50px;
+}
+
+header>div.active {
+  font-weight: 700;
+  color: #ce2f33;
+  border-bottom: #ce2f33 1px solid;
+}
+
+/* ----------------------------------------------
+ * main
+ * ------------------------------------------- */
+
+main {
+  position: fixed;
+  top: 50px;
+  bottom: 55px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+main .tab-pages {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: left 0.3s;
+}
+
+main .song-list {
+  overflow-y: auto;
+}
+
+main .song-list .item {
+  display: flex;
+  align-items: center;
+  border-bottom: #eee 1px solid;
+  height: 50px;
+}
+
+main .song-list .item .title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-left: 20px;
+}
+
+main .song-list .item .duration {
+  color: #999;
+  padding: 0 20px;
+}
+
+main .song-list .item.playing {
+  color: #ce2f33;
+}
+
+main .song-list .item:active {
+  background: #eee;
+}
+
+/* ----------------------------------------------
+ * footer
+ * ------------------------------------------- */
+
+footer {
+  position: fixed;
+  height: 55px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+footer .timeline {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: -1px;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+}
+
+footer .timeline .progress {
+  width: 0;
+  height: 1px;
+  background: #ce2f33;
+}
+
+footer .timeline .pointer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+}
+
+footer .timeline .pointer:before {
+  content: ' ';
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border: #ce2f33 1px solid;
+  border-radius: 50%;
+}
+
+footer .controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 10px;
+}
+
+footer .controls .flex {
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+footer .controls .title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+footer .controls .metadata {
+  color: #999;
+  font-size: 13px;
+}
+
+footer .controls .seeker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background: rgba(206, 47, 51, 0.1);
+}
+
+/* ----------------------------------------------
+ * menu
+ * ------------------------------------------- */
+
+menu {
+  position: fixed;
+  z-index: 9;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  left: -70%;
+  width: 70%;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+menu>div {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+}
+
+menu>div:active {
+  background: #eee;
+}
+
+menu .title:active, menu .copyright:active {
+  background: initial;
+}
+
+menu .copyright {
+  color: #999;
+}
+
+menu .countdown {
+  color: #999;
+  margin-left: 10px;
+}
+
+menu>hr {
+  height: 0;
+  border: 0;
+  border-top: #eee 1px solid;
+  margin: 10px 0;
+}
+
+menu .title {
+  font-weight: 700;
+  padding: 20px 30px 10px;
+}
+
+menu i {
+  margin-right: 10px;
+}
+
+/* ----------------------------------------------
+ * Icons
+ * ------------------------------------------- */
+
+button {
+  outline: none;
+  border: 0;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  background: transparent;
+  background-size: 100%;
+}
+
+button.play, button.pause {
+  width: 30px;
+  height: 30px;
+}
+
+button.previous {
+  background-image: url(image/previous.png);
+}
+
+button.next {
+  background-image: url(image/next.png);
+}
+
+button.play {
+  background-image: url(image/play.png);
+}
+
+button.pause {
+  background-image: url(image/pause.png);
+}
+
+i {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+i.logo {
+  background-image: url(image/logo.png);
+}
+
+i.menu {
+  background-image: url(image/menu.png);
+}
+
+i.checked {
+  background-image: url(image/checked.png);
+}
+
+i.server {
+  background-image: url(image/server.png);
+}
+
+i.clear {
+  background-image: url(image/clear.png);
+}
+
+i.update {
+  background-image: url(image/update.png);
+}
+
+/* ----------------------------------------------
+ * common
+ * ------------------------------------------- */
+
+.bgmask {
+  display: none;
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.flex {
+  flex: 1;
+}

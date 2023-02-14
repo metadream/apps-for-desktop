@@ -1,0 +1,259 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+.toast-progress {
+  top: 53px;
+}
+
+.transfer-progress {
+  color: #ccc;
+}
+
+/* ----------------------------------------------
+ * header
+ * ------------------------------------------- */
+
+header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  border-bottom: #ddd 1px solid;
+  display: flex;
+  align-items: center;
+}
+
+header>div {
+  width: 54px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header>div.appname {
+  flex: 1;
+  font-weight: 700;
+  justify-content: flex-start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+header>div.appname>span {
+  font-weight: 400;
+  margin-left: 10px;
+  color: #ccc;
+}
+
+header>div:active {
+  background: #eee;
+}
+
+header>div.appname:active {
+  background: none;
+}
+
+/* ----------------------------------------------
+ * main
+ * ------------------------------------------- */
+
+main {
+  position: absolute;
+  top: 54px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+main .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+  margin-top: -1px;
+}
+
+main .item:after {
+  content: '';
+  position: absolute;
+  left: 60px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #eee;
+}
+
+main .item:last-child:after {
+  left: 0;
+}
+
+main .item .filename {
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+main .item .metadata {
+  color: #ccc;
+  font-size: 12px;
+  text-align: right;
+}
+
+main .item:active {
+  background: #eee;
+}
+
+main .item .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .item img {
+  width: 30px;
+  height: 30px;
+}
+
+/* ----------------------------------------------
+ * Toast pages
+ * ------------------------------------------- */
+
+.text-page, .server-page {
+  background: #fff;
+}
+
+.text-page .content {
+  padding: 20px;
+  font-size: 14px;
+  -moz-user-select: initial;
+  -webkit-touch-callout: initial;
+  -webkit-user-select: initial;
+  user-select: initial;
+}
+
+.text-page .content.break-word {
+  word-break: normal;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.image-page, .video-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.image-page img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.video-page video {
+  width: 100%;
+}
+
+.server-page .item>div {
+  width: 100px;
+}
+
+.server-page input[type="text"], .server-page input[type="password"] {
+  flex: 1;
+  outline: 0;
+  font: inherit;
+  border: 0;
+  padding: 5px;
+  background: transparent;
+}
+
+/* ----------------------------------------------
+ * Switch style
+ * ------------------------------------------- */
+
+.toast-switch {
+  -webkit-appearance: none;
+  outline: none;
+  user-select: none;
+  position: relative;
+  width: 46px;
+  height: 28px;
+  border-radius: 20px;
+  border: 1px solid #dfdfdf;
+  background: #fdfdfd;
+  transition: background-color ease 0.4s;
+}
+
+.toast-switch:before {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: left 0.3s;
+}
+
+.toast-switch:checked {
+  box-shadow: #0c7 0 0 0 16px inset;
+  background-color: #0c7;
+  border-color: #0c7;
+  transition: border-color 0.4s, background-color ease 0.4s;
+}
+
+.toast-switch:checked:before {
+  left: 18px;
+}
+
+/* ----------------------------------------------
+ * Icons
+ * ------------------------------------------- */
+
+i {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+i.back {
+  background-image: url(image/back.png);
+}
+
+i.add {
+  background-image: url(image/add.png);
+}
+
+i.upload {
+  background-image: url(image/upload.png);
+}
+
+i.sort {
+  background-image: url(image/sort.png);
+}
+
+i.save {
+  background-image: url(image/save.png);
+}

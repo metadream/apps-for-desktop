@@ -1,0 +1,31 @@
+{
+    "name": "similar-images-finder",
+    "version": "1.0.1",
+    "description": "Find similar images with multiple algorithms",
+    "author": "Ai Chen <nobody@cloudseat.net>",
+    "copyright": "Copyright (c) 2020, Cloudseat",
+    "license": "MIT",
+    "main": "app/main.js",
+    "scripts": {
+        "start": "electron .",
+        "build:linux": "electron-builder -l",
+        "build:win": "electron-builder -w"
+    },
+    "build": {
+        "appId": "net.cloudseat.similar-images-finder",
+        "win": {
+            "target": [
+                "nsis"
+            ]
+        },
+        "linux": {
+            "target": [
+                "deb"
+            ]
+        }
+    },
+    "devDependencies": {
+        "electron": "^11.1.0",
+        "electron-builder": "^22.9.1"
+    }
+}
