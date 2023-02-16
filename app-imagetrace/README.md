@@ -2,7 +2,7 @@
 
 Imagetrace is a desktop app for converting bitmap images to scalable vector graphics (SVG). It's built on Electron, CLI of [Imagemagick convert](http://www.imagemagick.org/script/convert.php) and [Potrace](http://potrace.sourceforge.net/potrace.html).
 
-![screenshot](https://raw.githubusercontent.com/seatwork/app-imagetrace/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/metadream/apps-for-desktop/master/app-imagetrace/screenshot.png)
 
 ## Download
 

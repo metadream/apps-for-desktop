@@ -2,7 +2,7 @@
 
 当前项目源自另一个无损分割程序 [LosslessCut](https://github.com/mifi/lossless-cut)，起因是想改善 LosslessCut 的 UI，该项目的 Issue 中也曾提到新 UI 的计划，但始终未见升级。适逢近日正学习 Electron，便以此练手，开发了功能类似的 Lossless-Cut 软件。与原软件相比，当前软件除 UI 优化以外，也去除了一些不常用的功能以及允许用户选择的设置（因为这个软件的用户目前只有我一个）。尽管当前软件在代码方面几乎完全重写，但借鉴了 [LosslessCut](https://github.com/mifi/lossless-cut) 作者的诸多实践，在此表示感谢。
 
-![软件界面](https://raw.githubusercontent.com/seatwork/lossless-cut/master/screenshot.png)
+![软件界面](https://raw.githubusercontent.com/metadream/apps-for-desktop/master/app-lossless-cut/screenshot.png)
 
 ## 主要功能
 
