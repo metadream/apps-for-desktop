@@ -17,7 +17,7 @@
     "cordova-browser": "^6.0.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-fingerprint": "file:../cordova-plugin-fingerprint",
-    "cordova-plugin-samba": "git+https://github.com/seatwork/cordova-plugin-samba.git",
+    "cordova-plugin-samba": "git+https://github.com/metadream/cordova-plugin-samba.git",
     "cordova-plugin-vibration": "^3.1.1"
   },
   "devDependencies": {

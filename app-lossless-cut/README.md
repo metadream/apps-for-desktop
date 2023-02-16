@@ -29,10 +29,6 @@ SPACE | 空格键 | 播放/暂停
 
 对于 Chromium 不支持的格式，本软件采用快速实时转码播放技术，即允许操作 ffmpeg 能够解码的任何视频文件，而且操作的依然是无损原始文件。但遗憾的是，尤其遇到大视频文件，该方法在效率上（准确地说是寻轨流畅性方面）还是和原生格式不可同日而语。
 
-## 安装使用
-
-至 [Lossless-Cut Release](https://github.com/seatwork/lossless-cut/releases) 页面下载相应平台的压缩包，解压后直接运行即可。
-
 ## 开发构建
 
 ### 1. 安装 NodeJS

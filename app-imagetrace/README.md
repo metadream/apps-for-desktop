@@ -4,10 +4,6 @@ Imagetrace is a desktop app for converting bitmap images to scalable vector grap
 
 ![screenshot](https://raw.githubusercontent.com/metadream/apps-for-desktop/master/app-imagetrace/screenshot.png)
 
-## Download
-
-https://github.com/seatwork/app-imagetrace/releases
-
 ## Features
 
 - Multiple image formats supported
@@ -54,7 +50,6 @@ https://github.com/seatwork/app-imagetrace/releases
 
 ## building & Running
 ```
-git clone https://github.com/seatwork/app-imagetrace.git
 cd app-imagetrace
 npm install
 npm start

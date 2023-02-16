@@ -95,7 +95,7 @@ cutBtn.onclick = function() {
 }
 
 helpBtn.onclick = function() {
-  electron.shell.openExternal('https://github.com/seatwork/lossless-cut')
+  electron.shell.openExternal('https://github.com/metadream/app-for-desktop')
 }
 
 /* --------------------------------------------------------

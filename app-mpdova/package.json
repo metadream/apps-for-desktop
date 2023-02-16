@@ -15,7 +15,7 @@
   "dependencies": {
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
-    "cordova-plugin-mpc": "git+https://github.com/seatwork/cordova-plugin-mpc.git",
+    "cordova-plugin-mpc": "git+https://github.com/metadream/cordova-plugin-mpc.git",
     "cordova-plugin-vibration": "^3.1.1"
   },
   "devDependencies": {

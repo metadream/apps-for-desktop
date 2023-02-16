@@ -62,7 +62,7 @@ resetBtn.onclick = function() {
 }
 
 footer.onclick = function() {
-  electron.shell.openExternal('https://github.com/seatwork/app-imagetrace')
+  electron.shell.openExternal('https://github.com/metadream/app-for-desktop')
 }
 
 /* --------------------------------------------------------
