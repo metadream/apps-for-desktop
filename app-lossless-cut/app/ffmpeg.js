@@ -8,6 +8,7 @@
 
 const { execFile } = require('child_process')
 const stringToStream = require('string-to-stream')
+const path = require('path')
 const ffmpeg = path.join(__dirname, 'bin/ffmpeg')
 const mediainfo = path.join(__dirname, 'bin/mediainfo')
 
