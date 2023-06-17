@@ -94,7 +94,7 @@ cutBtn.onclick = function() {
 }
 
 helpBtn.onclick = function() {
-  electron.shell.openExternal('https://github.com/metadream/app-for-desktop')
+  electron.shell.openExternal('https://github.com/metadream/apps-for-desktop')
 }
 
 /* --------------------------------------------------------
