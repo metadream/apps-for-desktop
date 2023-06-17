@@ -7,6 +7,7 @@
  */
 
 const electron = require('electron')
+const remote = require('@electron/remote/main')
 const path = require('path')
 const appIcon = path.join(__dirname, 'assets/logo.png')
 const emptyIcon = electron.nativeImage.createEmpty()
@@ -30,6 +31,7 @@ function createWindow() {
     icon: appIcon,
     webPreferences: {
       nodeIntegration: true, // Make sure integrate node in renderer.js
+      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
@@ -54,6 +56,9 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  remote.initialize()
+  remote.enable(mainWindow.webContents)
 }
 
 /* --------------------------------------------------------

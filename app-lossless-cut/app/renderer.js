@@ -7,7 +7,6 @@
  */
 
 const electron = require('electron')
-const path = require('path')
 const ffmpeg = require('./ffmpeg')
 const videoEnhanced = require('./video')
 const Player = require('./player')
@@ -25,7 +24,7 @@ const openRecordBtn = $('.open-record')
 const helpBtn = $('.help')
 
 // Components
-const { dialog } = electron.remote
+const { dialog } = require('@electron/remote')
 const video = Object.assign($('video'), videoEnhanced)
 const player = new Player(video)
 const merger = new Merger()

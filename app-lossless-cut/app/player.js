@@ -5,6 +5,7 @@
  * Copyright (c) 2019 Cloudseat.net
  * --------------------------------------------------------
  */
+const { app } = require('@electron/remote')
 
 const Wave = require('./wave')
 
@@ -173,7 +174,7 @@ module.exports = class {
     if (frameRate) metadata.push(parseFloat(frameRate.toFixed(2)) + 'fps')
     if (bitRate)  metadata.push(Math.round(bitRate / 1000) + 'kbps')
     if (samplingRate)  metadata.push(parseFloat((samplingRate / 1000).toFixed(1)) + 'kHz')
-    document.title = electron.remote.app.name + '  |  ' + metadata.join(', ')
+    document.title = app.name + '  |  ' + metadata.join(', ')
   }
 
   resetControls() {

@@ -7,8 +7,8 @@
  */
 
 const electron = require('electron')
+const outputPath = require('@electron/remote').getGlobal('desktop')
 const ffmpeg = require('./ffmpeg')
-const outputPath = electron.remote.getGlobal('desktop')
 
 module.exports = class {
   constructor() {

@@ -29,6 +29,7 @@
         "electron-builder": "^23.6.0"
     },
     "dependencies": {
-        "string-to-stream": "^3.0.1"
+        "string-to-stream": "^3.0.1",
+        "@electron/remote": "^2.0.10"
     }
 }
