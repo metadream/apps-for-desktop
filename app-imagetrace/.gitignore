@@ -1,2 +1,4 @@
 node_modules/
+dist/
 Imagetrace-win32-x64/
+.package-lock.json

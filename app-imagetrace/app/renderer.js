@@ -10,7 +10,7 @@ require('./tooltip')
 const electron = require('electron')
 const fs = require('fs')
 const Potrace = require('./potrace')
-const { dialog } = electron.remote
+const { dialog } = require('@electron/remote')
 
 const openBtn = $('button.open')
 const exportBtn = $('button.export')

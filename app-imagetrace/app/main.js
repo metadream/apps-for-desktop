@@ -8,6 +8,7 @@
 
 const path = require('path')
 const electron = require('electron')
+const remote = require('@electron/remote/main')
 const app = electron.app
 
 let mainWindow
@@ -27,6 +28,7 @@ function createWindow() {
     icon: path.join(__dirname, 'assets/logo.ico'),
     webPreferences: {
       nodeIntegration: true, // Make sure integrate node in renderer.js
+      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
     }
   })
@@ -44,6 +46,9 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  remote.initialize()
+  remote.enable(mainWindow.webContents)
 }
 
 // This method will be called when Electron has finished
